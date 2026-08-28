@@ -7,17 +7,20 @@ code, runs builds and tests, and investigates repositories. It is backed
 tool, so it cannot be pointed at an arbitrary external model.
 
 ```
-        »»»»           ______
-    »»»»»»»»___,--=‾‾      ‾‾=--.__,--.
-   »»»»»»»» <###############  DCS  ======▶
-    »»»»»»»»‾‾‾`--=._          _.=--‾‾`--`
-        »»»»           ‾‾‾‾‾‾
+        ██
+        ██
+    ██████   ██████   ██████
+   ██   ██  ██       ██
+   ██   ██  ██        █████
+   ██   ██  ██            ██
+    ██████   ██████   ██████
+                          corp
 
-  DCS Coding CLI — agentic coding at Mach speed
+  Coding CLI — internal agentic coding assistant
 ```
 
-At launch the splash renders in DCS colors: a steel-blue F-22 fuselage
-streaking past an orange afterburner trail.
+At launch the splash renders the DCS Corp wordmark in the brand palette —
+a teal block `dcs` over a grey `corp`.
 
 ## Why "locked endpoints"?
 

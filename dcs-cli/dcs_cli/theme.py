@@ -5,33 +5,38 @@ from __future__ import annotations
 from rich.console import Console
 from rich.theme import Theme
 
-# DCS Corp brand-ish palette. Deep navy + steel blue + signal orange accent.
+# DCS Corp brand palette, sampled from the corporate logo: teal "dcs" wordmark
+# over a grey "corp". Teal is the primary brand color; grey is secondary text.
 DCS_THEME = Theme(
     {
-        "dcs.brand": "bold #E8871E",       # signal orange
-        "dcs.accent": "#3B82C4",           # steel blue
+        "dcs.brand": "bold #16A5C0",       # DCS logo teal
+        "dcs.accent": "#4FB9CE",           # lighter teal (values, highlights)
+        "dcs.corp": "#9AA4B0",             # logo "corp" grey
         "dcs.muted": "#8A94A6",            # slate grey
         "dcs.ok": "bold #4CAF50",
         "dcs.warn": "bold #E8A11E",
         "dcs.err": "bold #E5484D",
-        "dcs.user": "bold #3B82C4",
+        "dcs.user": "bold #4FB9CE",
         "dcs.assistant": "#D6DEEB",
         "dcs.tool": "#8A94A6",
         "dcs.rule": "#2A3B54",
     }
 )
 
-# F-22 Raptor "afterburner" splash — orange exhaust trail (dcs.brand) behind a
-# steel-blue fuselage (dcs.accent) streaking right past the DCS wordmark.
+# Splash wordmark: the DCS Corp logo as ASCII — teal block "dcs" over grey
+# "corp", matching the corporate mark.
 BANNER = """\
 
-        [dcs.brand]»»»»[/dcs.brand]           [dcs.accent]______[/dcs.accent]
-    [dcs.brand]»»»»»»»»[/dcs.brand][dcs.accent]___,--=‾‾      ‾‾=--.__,--.[/dcs.accent]
-   [dcs.brand]»»»»»»»»[/dcs.brand][dcs.accent] <###############  [/dcs.accent][dcs.brand]DCS[/dcs.brand][dcs.accent]  ======▶[/dcs.accent]
-    [dcs.brand]»»»»»»»»[/dcs.brand][dcs.accent]‾‾‾`--=._          _.=--‾‾`--`[/dcs.accent]
-        [dcs.brand]»»»»[/dcs.brand]           [dcs.accent]‾‾‾‾‾‾[/dcs.accent]
+        [dcs.brand]██[/dcs.brand]
+        [dcs.brand]██[/dcs.brand]
+    [dcs.brand]██████   ██████   ██████[/dcs.brand]
+   [dcs.brand]██   ██  ██       ██[/dcs.brand]
+   [dcs.brand]██   ██  ██        █████[/dcs.brand]
+   [dcs.brand]██   ██  ██            ██[/dcs.brand]
+    [dcs.brand]██████   ██████   ██████[/dcs.brand]
+                          [dcs.corp]corp[/dcs.corp]
 
-  [dcs.accent]DCS[/dcs.accent] [dcs.brand]Coding CLI[/dcs.brand] [dcs.muted]v{version} — agentic coding at Mach speed[/dcs.muted]
+  [dcs.brand]Coding CLI[/dcs.brand] [dcs.muted]v{version} — internal agentic coding assistant[/dcs.muted]
 """
 
 _console: Console | None = None
