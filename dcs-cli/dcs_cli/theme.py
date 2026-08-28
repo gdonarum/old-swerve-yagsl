@@ -21,12 +21,17 @@ DCS_THEME = Theme(
     }
 )
 
-BANNER = r"""
-[dcs.accent]      ____   ____ ____  [/dcs.accent]
-[dcs.accent]     |  _ \ / ___/ ___| [/dcs.accent]   [dcs.brand]DCS Coding CLI[/dcs.brand]
-[dcs.accent]     | | | | |   \___ \ [/dcs.accent]   [dcs.muted]Internal agentic coding assistant[/dcs.muted]
-[dcs.accent]     | |_| | |___ ___) |[/dcs.accent]
-[dcs.accent]     |____/ \____|____/ [/dcs.accent]   [dcs.muted]Powered by approved LiteLLM endpoints[/dcs.muted]
+# F-22 Raptor "afterburner" splash — orange exhaust trail (dcs.brand) behind a
+# steel-blue fuselage (dcs.accent) streaking right past the DCS wordmark.
+BANNER = """\
+
+        [dcs.brand]»»»»[/dcs.brand]           [dcs.accent]______[/dcs.accent]
+    [dcs.brand]»»»»»»»»[/dcs.brand][dcs.accent]___,--=‾‾      ‾‾=--.__,--.[/dcs.accent]
+   [dcs.brand]»»»»»»»»[/dcs.brand][dcs.accent] <###############  [/dcs.accent][dcs.brand]DCS[/dcs.brand][dcs.accent]  ======▶[/dcs.accent]
+    [dcs.brand]»»»»»»»»[/dcs.brand][dcs.accent]‾‾‾`--=._          _.=--‾‾`--`[/dcs.accent]
+        [dcs.brand]»»»»[/dcs.brand]           [dcs.accent]‾‾‾‾‾‾[/dcs.accent]
+
+  [dcs.accent]DCS[/dcs.accent] [dcs.brand]Coding CLI[/dcs.brand] [dcs.muted]v{version} — agentic coding at Mach speed[/dcs.muted]
 """
 
 _console: Console | None = None
@@ -40,4 +45,6 @@ def console() -> Console:
 
 
 def banner() -> str:
-    return BANNER
+    from . import __version__
+
+    return BANNER.format(version=__version__)

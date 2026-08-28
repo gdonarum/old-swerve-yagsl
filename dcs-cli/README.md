@@ -7,12 +7,17 @@ code, runs builds and tests, and investigates repositories. It is backed
 tool, so it cannot be pointed at an arbitrary external model.
 
 ```
-      ____   ____ ____
-     |  _ \ / ___/ ___|    DCS Coding CLI
-     | | | | |   \___ \    Internal agentic coding assistant
-     | |_| | |___ ___) |
-     |____/ \____|____/    Powered by approved LiteLLM endpoints
+        »»»»           ______
+    »»»»»»»»___,--=‾‾      ‾‾=--.__,--.
+   »»»»»»»» <###############  DCS  ======▶
+    »»»»»»»»‾‾‾`--=._          _.=--‾‾`--`
+        »»»»           ‾‾‾‾‾‾
+
+  DCS Coding CLI — agentic coding at Mach speed
 ```
+
+At launch the splash renders in DCS colors: a steel-blue F-22 fuselage
+streaking past an orange afterburner trail.
 
 ## Why "locked endpoints"?
 
