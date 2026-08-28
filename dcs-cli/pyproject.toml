@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dcs-cli"
+version = "0.1.0"
+description = "DCS Corp internal coding assistant CLI — an agentic, terminal-based coding agent backed by approved LiteLLM endpoints."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "DCS Corp" }]
+dependencies = [
+    "openai>=1.40,<2",
+    "rich>=13.7",
+    "prompt_toolkit>=3.0.43",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+dcs = "dcs_cli.cli:main"
+dcs-cli = "dcs_cli.cli:main"
+
+[tool.setuptools]
+packages = ["dcs_cli", "dcs_cli.tools"]
+
+[tool.setuptools.package-data]
+dcs_cli = ["endpoints.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

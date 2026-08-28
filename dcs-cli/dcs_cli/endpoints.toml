@@ -1,0 +1,61 @@
+# =============================================================================
+# DCS Corp — Approved LiteLLM endpoint registry (LOCKED)
+# =============================================================================
+# This file ships inside the dcs-cli package and defines the ONLY model
+# endpoints the tool is permitted to talk to. Because these endpoints are
+# baked into the distribution, an operator cannot point the CLI at an
+# arbitrary external model at runtime — only these DCS-approved LiteLLM
+# proxies are reachable.
+#
+# API keys are NEVER stored here. Secrets are supplied at runtime via the
+# environment variable named by each endpoint's `api_key_env`.
+#
+# To add/rotate an endpoint, update this file and cut a new release of the
+# package. That is intentional: endpoint governance is a release-time
+# decision, not a runtime one.
+# =============================================================================
+
+# When true, user config / env cannot override base_url or add endpoints.
+locked = true
+
+# Which endpoint id to use when none is selected.
+default_endpoint = "dcs-litellm-prod"
+
+[[endpoints]]
+id = "dcs-litellm-prod"
+label = "DCS LiteLLM — Production"
+# Point this at your internal LiteLLM proxy. Replace before rollout.
+base_url = "https://litellm.dcscorp.internal/v1"
+api_key_env = "DCS_LLM_API_KEY"
+default_model = "dcs-gpt-4o"
+# Models this endpoint is allowed to serve. Requests for other model
+# names are rejected client-side.
+models = [
+    { name = "dcs-gpt-4o",        label = "DCS GPT-4o (general coding)",   prompt_per_1k = 0.005,  completion_per_1k = 0.015,  context = 128000 },
+    { name = "dcs-claude-sonnet", label = "DCS Claude Sonnet",             prompt_per_1k = 0.003,  completion_per_1k = 0.015,  context = 200000 },
+    { name = "dcs-llama-70b",     label = "DCS Llama 3 70B (on-prem)",     prompt_per_1k = 0.0,    completion_per_1k = 0.0,     context = 32000  },
+]
+
+[[endpoints]]
+id = "dcs-litellm-staging"
+label = "DCS LiteLLM — Staging"
+base_url = "https://litellm-staging.dcscorp.internal/v1"
+api_key_env = "DCS_LLM_API_KEY_STAGING"
+default_model = "dcs-gpt-4o"
+models = [
+    { name = "dcs-gpt-4o",    label = "DCS GPT-4o (general coding)", prompt_per_1k = 0.005, completion_per_1k = 0.015, context = 128000 },
+    { name = "dcs-llama-70b", label = "DCS Llama 3 70B (on-prem)",   prompt_per_1k = 0.0,   completion_per_1k = 0.0,   context = 32000  },
+]
+
+# Local development against a LiteLLM proxy on your workstation.
+# Handy for testing without hitting internal infra.
+[[endpoints]]
+id = "local"
+label = "Local LiteLLM (developer)"
+base_url = "http://localhost:4000/v1"
+api_key_env = "DCS_LLM_API_KEY_LOCAL"
+default_model = "dcs-gpt-4o"
+models = [
+    { name = "dcs-gpt-4o",    label = "Local model", prompt_per_1k = 0.0, completion_per_1k = 0.0, context = 128000 },
+    { name = "dcs-llama-70b", label = "Local model", prompt_per_1k = 0.0, completion_per_1k = 0.0, context = 32000  },
+]

@@ -1,0 +1,33 @@
+# DCS Coding CLI — user config (optional)
+#
+# Copy to one of:
+#   ~/.config/dcs-cli/config.toml
+#   ~/.dcs-cli.toml
+# or point DCS_CLI_CONFIG at it.
+#
+# NOTE: You can only choose among DCS-approved endpoints/models (baked into
+# the tool). You cannot define a new base_url here — that is governed by the
+# locked bundled registry. Secrets (API keys) are NEVER put in this file;
+# they come from the environment variable named by the chosen endpoint.
+
+# Which approved endpoint to use by default (see: `dcs --list-endpoints`).
+endpoint = "dcs-litellm-prod"
+
+# Which approved model to use (see: `dcs --list-models`).
+model = "dcs-gpt-4o"
+
+# Approval mode for mutating actions:
+#   suggest    - confirm every write/edit/shell action (safest, default)
+#   auto       - auto-approve file writes/edits, still confirm shell commands
+#   full-auto  - auto-approve everything
+#   plan       - read-only; refuse all mutating actions
+approval_mode = "suggest"
+
+# Optional: directory of user tool plugins (*.py files).
+# plugin_dir = "~/.dcs-cli/plugins"
+
+# Streaming responses (true/false).
+stream = true
+
+# Safety cap on tool-call iterations per turn.
+max_tool_iterations = 50
