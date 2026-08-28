@@ -6,6 +6,8 @@ code, runs builds and tests, and investigates repositories. It is backed
 **exclusively by DCS‑approved LiteLLM endpoints** that are baked into the
 tool, so it cannot be pointed at an arbitrary external model.
 
+![DCS Coding CLI in action](docs/mockup.png)
+
 ```
         ██
         ██
@@ -20,7 +22,9 @@ tool, so it cannot be pointed at an arbitrary external model.
 ```
 
 At launch the splash renders the DCS Corp wordmark in the brand palette —
-a teal block `dcs` over a grey `corp`.
+a teal block `dcs` over a grey `corp`. The screenshot above is generated from
+the real CLI theme via `python docs/generate_mockup.py` (the transcript is
+illustrative).
 
 ## Why "locked endpoints"?
 
